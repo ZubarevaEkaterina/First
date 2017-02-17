@@ -83,9 +83,7 @@ namespace Lab
                 Console.WriteLine("The perimeter is " + triangle[z].Perimeter);
                 Console.WriteLine("and the area is " + triangle[z].Area);
 
-
-
-
+                
             }
 
             if (count_of_isosceles_triangles != 0)
@@ -98,8 +96,6 @@ namespace Lab
             }
 
             else Console.WriteLine("\nAll the triangles are untyped");
-
-
 
             Console.Read();
 
