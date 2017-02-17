@@ -11,8 +11,10 @@ namespace Lab
         static void Main(string[] args)
         {
             Console.WriteLine("Please, enter the count of angles");
+            
             Random gen = new Random();
-            int count_of_ages = 3;
+            int count_of_ages = 0;
+            count_of_ages = Convert.ToInt32(Console.ReadLine());
             var triangle = new Triangle[10];
             var polygon = new Polygon[10];
             var points = new Point[count_of_ages];
@@ -99,9 +101,14 @@ namespace Lab
                     if (count_of_ages != 3)
                     {
                         polygon[z] = new Polygon(edge, points);
+                    for (int i = 0; i < points.Length; i++)
+                    {
+                        Console.WriteLine("The length of the {0} edge is {1}", i + 1, edge[i].get_length);
                     }
-                
+
                 }
+
+            }
                 
             
             if (count_of_isosceles_triangles != 0)
