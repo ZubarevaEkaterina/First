@@ -18,6 +18,7 @@ namespace Lab
         {
             edge = edge1;
             point = point1;
+      
         }
 
         public double Perimeter
@@ -41,20 +42,26 @@ namespace Lab
             get
             {
                 area = 0;
-                double p = Perimeter / 2;
-                return area = Math.Sqrt(p * (p - edge[0].get_length) * (p - edge[1].get_length) * (p - edge[2].get_length));
-
+                for (int i = 0; i < point.Length - 1; i++)
+                {
+                    area = area +(point[i].x * point[i + 1].y - point[i].y * point[i + 1].x);
+                }
+                area = area + (point[point.Length - 1].x * point[0].y - point[point.Length - 1].y * point[0].x);
+                return Math.Abs(area / 2);
+               
             }
         }
 
-        public bool Check()
-        {
-            if (edge[0].get_length + edge[1].get_length <= edge[2].get_length ||
-                edge[0].get_length + edge[2].get_length <= edge[1].get_length ||
-                edge[1].get_length + edge[1].get_length <= edge[0].get_length)
-                return false;
-            else return true;
+
+       
+
+        public bool Check
+        {???
+            
+            }
         }
 
-    }
+    
+
+}
 }

@@ -9,7 +9,7 @@ namespace Lab
     class Edge
     {
         
-        public readonly Point first_point_of_edge,second_point_of_edge ;
+        public Point first_point_of_edge,second_point_of_edge ;
     
 
 

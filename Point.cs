@@ -8,7 +8,7 @@ namespace Lab
 {
     class Point
     {
-        public readonly int x, y;
+        public int x, y;
 
         public Point(int a, int b)
         {
