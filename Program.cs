@@ -11,10 +11,18 @@ namespace Lab
         static void Main(string[] args)
         {
             Console.WriteLine("Please, enter the count of angles");
-
-            Random gen = new Random();
             int count_of_ages = 0;
+            start1:
             count_of_ages = Convert.ToInt32(Console.ReadLine());
+
+            if (count_of_ages <= 2)
+            {
+                Console.WriteLine("Sorry, you made a mistake, please, enter the count of angles again ");
+                goto start1;
+            }
+           
+            Random gen = new Random();
+            
 
             var triangle = new Triangle[10];
             var polygon = new Polygon[10];
@@ -61,18 +69,13 @@ namespace Lab
               
                 }
 
-                for (int i = 0; i < count_of_ages; i++)
+                for (int i = 0; i < count_of_ages-1; i++)
                 {
 
-                    if (i < count_of_ages - 1)
-                    {
-                        edge[i] = new Edge(points[i], points[i + 1]);
-                    }
-                    else
-                    {
-                        edge[i] = new Edge(points[i], points[0]);
+                   edge[i] = new Edge(points[i], points[i + 1]);
+                   edge[count_of_ages - 1] = new Edge(points[count_of_ages - 1], points[0]);
 
-                    }
+                   
 
                 }
 
@@ -144,12 +147,12 @@ namespace Lab
                        
                         Console.WriteLine("The length of the {0} edge is {1}", i + 1, edge[i].get_length);
                     }
-/*
-                    if (polygon[z].Check == false)
+
+                    if (polygon[z].Check() == false)
                     {
                         goto start;
                     }
-                    */
+                    
                     Console.WriteLine("The perimeter is " + polygon[z].Perimeter);
                     Console.WriteLine("and the area is " + polygon[z].Area);
 

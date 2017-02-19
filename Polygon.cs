@@ -10,8 +10,10 @@ namespace Lab
     {
         private Point[] point;
         private Edge[] edge;
+        private double[] length;
         public double area;
         public double perimeter;
+
 
 
         public Polygon(Edge[] edge1, Point[] point1)
@@ -53,15 +55,31 @@ namespace Lab
         }
 
 
-       
 
-   /*    public bool Check
-        {???
-            
+
+        public bool Check()
+        {
+            bool tmp = false;
+                this.length = new double[point.Length];
+                for (int i = 0; i < point.Length; i++)
+                {
+                    length[i] = edge[i].get_length;
+                    if (length[i] == 0 || point.Length < 3)
+                    {
+                        tmp = false;
+                    }
+                    else tmp = true;
+
+                }
+            return tmp;
+                    
+                }
+
             }
-        */
         }
+        
+        
 
     
 
-}
+
