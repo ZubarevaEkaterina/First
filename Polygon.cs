@@ -9,18 +9,16 @@ namespace Lab
     class Polygon
     {
         private Point[] point;
-        private Edge[] edge;
-        private double[] length;
+        private Edge[] edge; 
         public double area;
         public double perimeter;
-
 
 
         public Polygon(Edge[] edge1, Point[] point1)
         {
             edge = edge1;
             point = point1;
-      
+
         }
 
         public double Perimeter
@@ -46,40 +44,18 @@ namespace Lab
                 area = 0;
                 for (int i = 0; i < point.Length - 1; i++)
                 {
-                    area = area +(point[i].x * point[i + 1].y - point[i].y * point[i + 1].x);
+                    area = area + (point[i].x * point[i + 1].y - point[i].y * point[i + 1].x);
                 }
                 area = area + (point[point.Length - 1].x * point[0].y - point[point.Length - 1].y * point[0].x);
                 return Math.Abs(area / 2);
-               
-            }
-        }
-
-
-
-
-        public bool Check()
-        {
-            bool tmp = false;
-                this.length = new double[point.Length];
-                for (int i = 0; i < point.Length; i++)
-                {
-                    length[i] = edge[i].get_length;
-                    if (length[i] == 0 || point.Length < 3)
-                    {
-                        tmp = false;
-                    }
-                    else tmp = true;
-
-                }
-            return tmp;
-                    
-                }
 
             }
         }
-        
-        
+    }
+}
 
-    
+
+
+
 
 
