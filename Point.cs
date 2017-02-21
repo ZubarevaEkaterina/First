@@ -14,7 +14,10 @@ namespace Lab
         {
            x = a;
            y = b;
+
+          Console.WriteLine("The x is {0} the y is {1}", x, y);
         }
-        
-    }
+
 }
+    }
+

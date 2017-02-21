@@ -8,15 +8,34 @@ namespace Lab
 {
     class Triangle
 
-    { private Point[] point;
+    {   private Point[] point;
         private Edge[] edge;
        
         
-        public Triangle(Edge[] edge1, Point[] point1)
+        public Triangle(Point[] point1)
         {
-            edge = edge1;
+           
             point = point1;
          }
+
+
+        public void CreateFigure()
+        {
+            edge = new Edge[point.Length];
+            for (int i = 0; i < point.Length - 1; i++)
+            {
+                    edge[i] = new Edge(point[i], point[i + 1]);
+                    edge[point.Length - 1] = new Edge(point[point.Length - 1], point[0]);
+
+                }
+
+            for (int i = 0; i < point.Length; i++)
+            {
+                Console.WriteLine("The length of the {0} edge is {1}", i + 1, edge[i].get_length);
+            }
+
+        }
+
 
         public double Perimeter
         { 
@@ -51,7 +70,8 @@ namespace Lab
                 edge[0].get_length + edge[2].get_length <= edge[1].get_length ||
                 edge[1].get_length + edge[1].get_length <= edge[0].get_length)
                 return false;
-            else return true;
+            else
+                return true;
         }
 
 

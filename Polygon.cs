@@ -12,12 +12,30 @@ namespace Lab
         private Edge[] edge; 
        
 
-        public Polygon(Edge[] edge1, Point[] point1)
+        public Polygon(Point[] point1)
         {
-            edge = edge1;
+           
             point = point1;
 
         }
+
+        public void CreateFigure()
+        {
+            edge = new Edge[point.Length];
+            for (int i = 0; i < point.Length - 1; i++)
+            {
+                edge[i] = new Edge(point[i], point[i + 1]);
+                edge[point.Length - 1] = new Edge(point[point.Length - 1], point[0]);
+
+            }
+
+            for (int i = 0; i < point.Length; i++)
+            {
+                Console.WriteLine("The length of the {0} edge is {1}", i + 1, edge[i].get_length);
+            }
+
+        }
+
 
         public double Perimeter
         {

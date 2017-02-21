@@ -21,6 +21,7 @@ namespace Lab
 
             {
                return  Math.Sqrt(Math.Pow((first_point_of_edge.x - second_point_of_edge.x), 2) + Math.Pow((first_point_of_edge.y - second_point_of_edge.y), 2));
+
             }
         }
     }

@@ -21,6 +21,7 @@ namespace Lab
                 goto start1;
             }
            
+
             Random gen = new Random();
             
 
@@ -28,9 +29,7 @@ namespace Lab
             var polygon = new Polygon[10];
 
             var points = new Point[count_of_ages];
-            var edge = new Edge[count_of_ages];
-
-
+          
             int count_of_right_triangles = 0;
             int count_of_isosceles_triangles = 0;
 
@@ -40,15 +39,13 @@ namespace Lab
 
             for (int z = 0; z < 10; z++)
             {
-                Console.WriteLine("\n_________________________________________________________\n\n {0} figure with {1} angles\n", z + 1, count_of_ages);
+                
                 start:
 
                 
                 for (int i = 0; i < points.Length; i++)
                 {
-
                     points[i] = new Point(gen.Next(15), gen.Next(15));
-
 
                 }
 
@@ -56,38 +53,22 @@ namespace Lab
                 {
                     goto start;
                 }
-
-               
-
-                for (int i = 0; i < count_of_ages-1; i++)
-                {
-
-                   edge[i] = new Edge(points[i], points[i + 1]);
-                   edge[count_of_ages - 1] = new Edge(points[count_of_ages - 1], points[0]);
-
-                }
-
+                
                 if (count_of_ages == 3)
                 {
-                    triangle[z] = new Triangle(edge, points);
+                    Console.WriteLine("\n_________________________________________________________\n\nTriangle # {0}  \n", z + 1);
+                    triangle[z] = new Triangle(points);
+                    triangle[z].CreateFigure();
 
                     if (triangle[z].Check() == false)
                     {
+                        Console.WriteLine("Triangle doesn't exist \n");
                         goto start;
                     }
-                    for (int i = 0; i < points.Length; i++)
-                    {
-                        Console.WriteLine("The x is {0} the y is {1}", points[i].x, points[i].y);
-
-                    }
 
 
-                    for (int i = 0; i < points.Length; i++)
-                    {
+                    
 
-                        Console.WriteLine("The length of the {0} edge is {1}", i + 1, edge[i].get_length);
-                    }
-                   
 
                     if (triangle[z].CheckRight() == true)
                     {
@@ -120,18 +101,15 @@ namespace Lab
 
                 if (count_of_ages != 3)
                 {
-                    polygon[z] = new Polygon(edge, points);
+                    Console.WriteLine("\n_________________________________________________________\n\n {0} figure with {1} angles\n", z + 1, count_of_ages);
+                    polygon[z] = new Polygon(points);
 
                     for (int i = 0; i < points.Length; i++)
                     {
                         Console.WriteLine("The x is {0} the y is {1}", points[i].x, points[i].y);
                         
                     }
-                    for (int i = 0; i < points.Length; i++)
-                    {
-                       
-                        Console.WriteLine("The length of the {0} edge is {1}", i + 1, edge[i].get_length);
-                    }
+                   
 
                     if (polygon[z].Area == 0)
                     {
@@ -185,7 +163,7 @@ namespace Lab
                     
                     if (point[j].x == point[i].x && point[j].y == point[i].y && i !=j)
                     {
-                       
+                        Console.WriteLine("Figure doesn't exist \n");
                         tmp = false; goto end;
 
                     }
