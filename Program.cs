@@ -57,20 +57,7 @@ namespace Lab
                     goto start;
                 }
 
-                for (int i = 0; i < count_of_ages; i++)
-                {
-
-                    if (i < count_of_ages - 1)
-                    {
-                        edge[i] = new Edge(points[i], points[i + 1]);
-                    }
-                    else
-                    {
-                        edge[i] = new Edge(points[i], points[0]);
-
-                    }
-              
-                }
+               
 
                 for (int i = 0; i < count_of_ages-1; i++)
                 {

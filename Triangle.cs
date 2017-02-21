@@ -10,9 +10,7 @@ namespace Lab
 
     { private Point[] point;
         private Edge[] edge;
-        public double area;
-        public double perimeter;
-
+       
         
         public Triangle(Edge[] edge1, Point[] point1)
         {
@@ -24,7 +22,7 @@ namespace Lab
         { 
             get
             {
-                perimeter = 0;
+               double perimeter = 0;
                 {
                     for (int i = 0; i < edge.Length; i++)
                     {
@@ -40,7 +38,7 @@ namespace Lab
         {
             get
             {
-                area = 0;
+               double area = 0;
                 double p = Perimeter/2;
                 return area = Math.Sqrt(p * (p - edge[0].get_length) * (p - edge[1].get_length)*(p - edge[2].get_length));
 

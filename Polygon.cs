@@ -10,9 +10,7 @@ namespace Lab
     {
         private Point[] point;
         private Edge[] edge; 
-        public double area;
-        public double perimeter;
-
+       
 
         public Polygon(Edge[] edge1, Point[] point1)
         {
@@ -25,7 +23,7 @@ namespace Lab
         {
             get
             {
-                perimeter = 0;
+                double perimeter = 0;
                 {
                     for (int i = 0; i < edge.Length; i++)
                     {
@@ -41,7 +39,7 @@ namespace Lab
         {
             get
             {
-                area = 0;
+               double area = 0;
                 for (int i = 0; i < point.Length - 1; i++)
                 {
                     area = area + (point[i].x * point[i + 1].y - point[i].y * point[i + 1].x);
