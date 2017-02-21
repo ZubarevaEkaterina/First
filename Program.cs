@@ -39,14 +39,12 @@ namespace Lab
 
             for (int z = 0; z < 10; z++)
             {
-                
-                start:
+                Console.WriteLine("\n_________________________________________________________\n\n {0} figure with {1} angles\n", z + 1, count_of_ages);
 
-                
+                start:
                 for (int i = 0; i < points.Length; i++)
                 {
                     points[i] = new Point(gen.Next(15), gen.Next(15));
-
                 }
 
                 if (CheckPoint(points) == false)
@@ -56,7 +54,7 @@ namespace Lab
                 
                 if (count_of_ages == 3)
                 {
-                    Console.WriteLine("\n_________________________________________________________\n\nTriangle # {0}  \n", z + 1);
+                    
                     triangle[z] = new Triangle(points);
                     triangle[z].CreateFigure();
 
@@ -66,18 +64,14 @@ namespace Lab
                         goto start;
                     }
 
-
-                    
-
-
                     if (triangle[z].CheckRight() == true)
                     {
                         Console.WriteLine("\nTriangle is right ");
+
                         perimeter_of_right_triangles = perimeter_of_right_triangles + triangle[z].Perimeter;
                         count_of_right_triangles = count_of_right_triangles + 1;
                     }
 
-                    
                     else if (triangle[z].CheckIsosceles() == true)
                     {
                         Console.WriteLine("\nTriangle is isosceles ");
@@ -89,40 +83,20 @@ namespace Lab
                     else
                     {
                         Console.WriteLine("\nTriangle has no type ");
-
                     }
-
                     Console.WriteLine("The perimeter is " + triangle[z].Perimeter);
                     Console.WriteLine("and the area is " + triangle[z].Area);
-
                 }
 
-               
 
                 if (count_of_ages != 3)
                 {
-                    Console.WriteLine("\n_________________________________________________________\n\n {0} figure with {1} angles\n", z + 1, count_of_ages);
                     polygon[z] = new Polygon(points);
-
-                    for (int i = 0; i < points.Length; i++)
-                    {
-                        Console.WriteLine("The x is {0} the y is {1}", points[i].x, points[i].y);
-                        
-                    }
-                   
-
-                    if (polygon[z].Area == 0)
-                    {
-                        goto start;
-                    }
-
-
+                    polygon[z].CreateFigure();
+                  
                     Console.WriteLine("The perimeter is " + polygon[z].Perimeter);
                     Console.WriteLine("and the area is " + polygon[z].Area);
-
-
                 }
-
             }
 
             if (count_of_ages == 3)
@@ -130,12 +104,8 @@ namespace Lab
                 avearage_area_and_perieter(count_of_isosceles_triangles, count_of_right_triangles, area_of_isosceles_triangles, perimeter_of_right_triangles);
             }
 
-
             Console.Read();
-
-
         }
-
 
 
         public static void avearage_area_and_perieter(int counti, int countr, double areai, double perimeterr)
@@ -144,6 +114,7 @@ namespace Lab
             {
                 Console.WriteLine("\nThe average area of isosceles triangles is {0}", areai / counti);
             }
+
             if (countr != 0)
             {
                 Console.WriteLine("\nThe average perimeter of right-angled triangles is {0}", perimeterr / countr);
@@ -165,18 +136,11 @@ namespace Lab
                     {
                         Console.WriteLine("Figure doesn't exist \n");
                         tmp = false; goto end;
-
                     }
-
-                    
                     else tmp = true; 
-                    
                 }
-
             }
-
             end: return tmp;  
         }
-
     }
 }
