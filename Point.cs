@@ -12,12 +12,12 @@ namespace Lab
 
         public Point(int a, int b)
         {
-           x = a;
-           y = b;
+            x = a;
+            y = b;
 
-          Console.WriteLine("The x is {0} the y is {1}", x, y);
+            Console.WriteLine("x is {0} and y is {1}", x, y);
         }
 
-}
     }
+}
 

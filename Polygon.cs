@@ -9,12 +9,12 @@ namespace Lab
     class Polygon
     {
         private Point[] point;
-        private Edge[] edge; 
-       
+        private Edge[] edge;
+
 
         public Polygon(Point[] point1)
         {
-           
+
             point = point1;
 
         }
@@ -57,7 +57,7 @@ namespace Lab
         {
             get
             {
-               double area = 0;
+                double area = 0;
                 for (int i = 0; i < point.Length - 1; i++)
                 {
                     area = area + (point[i].x * point[i + 1].y - point[i].y * point[i + 1].x);

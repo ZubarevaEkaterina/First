@@ -10,8 +10,33 @@ namespace Lab
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please, enter the count of angles");
+            Console.WriteLine("Do you want to enter your coordinates? Enter 'n'(no) or 'y'(yes)\nor go to example: 'e' ");
+            char answer;
             int count_of_ages = 0;
+            int n = 0;
+            start2:
+            answer = Convert.ToChar(Console.ReadLine());
+
+            if (answer != 'y' && answer != 'n' && answer != 'e')
+            {
+                Console.WriteLine("Sorry, you made a mistake, please, enter 'n' or 'y' ");
+                goto start2;
+            }
+
+            if (answer == 'e')
+            {
+                n = 1;
+                count_of_ages = 6;
+                goto example;
+            }
+
+
+            Console.WriteLine("Please, enter the count of figures");
+
+            n = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Please, enter the count of angles");
+
             start1:
             count_of_ages = Convert.ToInt32(Console.ReadLine());
 
@@ -20,16 +45,17 @@ namespace Lab
                 Console.WriteLine("Sorry, you made a mistake, please, enter the count of angles again ");
                 goto start1;
             }
-           
 
+
+            example:
             Random gen = new Random();
-            
 
-            var triangle = new Triangle[10];
-            var polygon = new Polygon[10];
+
+            var triangle = new Triangle[n];
+            var polygon = new Polygon[n];
 
             var points = new Point[count_of_ages];
-          
+
             int count_of_right_triangles = 0;
             int count_of_isosceles_triangles = 0;
 
@@ -37,24 +63,50 @@ namespace Lab
             double area_of_isosceles_triangles = 0;
 
 
-            for (int z = 0; z < 10; z++)
+            for (int z = 0; z < n; z++)
             {
                 Console.WriteLine("\n_________________________________________________________\n\n {0} figure with {1} angles\n", z + 1, count_of_ages);
 
                 start:
-                for (int i = 0; i < points.Length; i++)
+
+                if (answer == 'n')
                 {
-                    points[i] = new Point(gen.Next(15), gen.Next(15));
+                    for (int i = 0; i < points.Length; i++)
+                    {
+                        points[i] = new Point(gen.Next(15), gen.Next(15));
+                    }
+                }
+
+                if (answer == 'e')
+                {
+                    points[0] = new Point(2, 0);
+                    points[1] = new Point(5, 1);
+                    points[2] = new Point(5, 3);
+                    points[3] = new Point(3, 6);
+                    points[4] = new Point(2, 5);
+                    points[5] = new Point(1, 2);
+
+
+                }
+
+                if (answer == 'y')
+                {
+                    for (int i = 0; i < points.Length; i++)
+                    {
+                        Console.WriteLine("x and y for {0} point:", i + 1);
+                        points[i] = new Point(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
+
+                    }
                 }
 
                 if (CheckPoint(points) == false)
                 {
                     goto start;
                 }
-                
+
                 if (count_of_ages == 3)
                 {
-                    
+
                     triangle[z] = new Triangle(points);
                     triangle[z].CreateFigure();
 
@@ -93,7 +145,7 @@ namespace Lab
                 {
                     polygon[z] = new Polygon(points);
                     polygon[z].CreateFigure();
-                  
+
                     Console.WriteLine("The perimeter is " + polygon[z].Perimeter);
                     Console.WriteLine("and the area is " + polygon[z].Area);
                 }
@@ -124,23 +176,23 @@ namespace Lab
         }
 
 
-        public static bool CheckPoint(Point [] point)
+        public static bool CheckPoint(Point[] point)
         {
             bool tmp = false;
-            for (int i = 0; i < point.Length;i++)
+            for (int i = 0; i < point.Length; i++)
             {
-                for (int j = point.Length-1; j > 0; j--)
+                for (int j = point.Length - 1; j > 0; j--)
                 {
-                    
-                    if (point[j].x == point[i].x && point[j].y == point[i].y && i !=j)
+
+                    if (point[j].x == point[i].x && point[j].y == point[i].y && i != j)
                     {
                         Console.WriteLine("Figure doesn't exist \n");
                         tmp = false; goto end;
                     }
-                    else tmp = true; 
+                    else tmp = true;
                 }
             }
-            end: return tmp;  
+            end: return tmp;
         }
     }
 }
