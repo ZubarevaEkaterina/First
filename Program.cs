@@ -86,7 +86,6 @@ namespace Lab
                     points[4] = new Point(2, 5);
                     points[5] = new Point(1, 2);
 
-
                 }
 
                 if (answer == 'y')
